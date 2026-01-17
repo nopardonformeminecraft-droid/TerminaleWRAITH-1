@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema di Controllo Hacker - Terminale di Accesso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Schermata di login -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-terminal"></i> SISTEMA DI CONTROLLO HACKER</h1>
+                <p>Accesso riservato al personale autorizzato</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-key"></i> Password di accesso:</label>
+                    <input type="password" id="login-password" placeholder="Inserire la password" autocomplete="off">
+                </div>
+                
+                <button type="button" class="login-btn" id="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> ACCEDI AL SISTEMA
+                </button>
+                
+                <div class="login-error" id="login-error">
+                    <i class="fas fa-exclamation-triangle"></i> Password non valida. Riprovare.
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: center; font-size: 0.8rem; color: #0a0;">
+                <p>Password di default: <span style="color: #0f0;">darknet2023</span></p>
+                <p>Cambiare la password nel codice per maggiore sicurezza</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Schermata di transizione -->
+    <div class="transition-screen" id="transition-screen">
+        <div class="transition-text">
+            <i class="fas fa-user-secret"></i> ACCESSO IN CORSO...
+        </div>
+        
+        <div class="hacking-animation">
+            <div class="hacking-line" style="animation-delay: 0.1s;">> AVVIO SISTEMA DI SICUREZZA...</div>
+            <div class="hacking-line" style="animation-delay: 0.6s;">> VERIFICA CREDENZIALI...</div>
+            <div class="hacking-line" style="animation-delay: 1.1s;">> CRIPTAZIONE CONNESSIONE...</div>
+            <div class="hacking-line" style="animation-delay: 1.6s;">> MASCHERAMENTO IP...</div>
+            <div class="hacking-line" style="animation-delay: 2.1s;">> ACCESSO AUTORIZZATO</div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Schermata di emergenza -->
+    <div class="emergency-screen" id="emergency-screen">
+        <div class="emergency-warning">
+            <i class="fas fa-exclamation-triangle"></i> PROTOCOLLO DI EMERGENZA
+        </div>
+        
+        <div class="emergency-message" id="emergency-message">
+            Avvio autodistruzione del sistema...
+        </div>
+        
+        <div class="countdown" id="countdown">5</div>
+        
+        <div class="emergency-progress">
+            <div class="emergency-progress-fill" id="emergency-progress"></div>
+        </div>
+        
+        <div class="destruction-animation" id="destruction-animation">
+            <div class="circuit-board"></div>
+            <!-- I chip verranno aggiunti dinamicamente -->
+        </div>
+        
+        <div class="emergency-message">
+            Tutti i dati sensibili stanno venendo distrutti...
+        </div>
+    </div>
+    
+    <!-- Schermata di blocco standard -->
+    <div class="lock-screen" id="lock-screen">
+        <div class="lock-screen-time" id="lock-screen-time">12:00</div>
+        <div class="lock-screen-date" id="lock-screen-date">Lunedì 1 gennaio</div>
+        <div class="lock-screen-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="lock-screen-text">
+            Tocca per sbloccare
+        </div>
+        <div class="lock-screen-text" style="font-size: 1rem; opacity: 0.7;">
+            Tablet standard - Sistema Android
+        </div>
+    </div>
+    
+    <!-- Schermata principale -->
+    <div class="main-screen" id="main-screen">
+        <!-- Menu laterale -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-user-secret"></i> CONTROLLO HACKER</h2>
+                <p>Sessione attiva: <span id="session-user">root</span></p>
+            </div>
+            
+            <div class="menu-item active" data-screen="terminal">
+                <i class="fas fa-terminal"></i> Terminale Principale
+            </div>
+            
+            <div class="menu-item" data-screen="gps">
+                <i class="fas fa-map-marker-alt"></i> Rintracciamento GPS
+            </div>
+            
+            <div class="menu-item" data-screen="cameras">
+                <i class="fas fa-video"></i> Hackeraggio Telecamere
+            </div>
+            
+            <div class="menu-item" data-screen="jammer">
+                <i class="fas fa-wifi"></i> Controllo Jammer
+            </div>
+            
+            <div class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </div>
+        </div>
+        
+        <!-- Area contenuto -->
+        <div class="content-area">
+            <!-- Terminale principale -->
+            <div class="activity-screen active" id="terminal-screen">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-title">
+                            <i class="fas fa-terminal"></i> TERMINALE DI CONTROLLO - SISTEMA HACKER v2.0
+                        </div>
+                        <div class="terminal-status">
+                            <div class="status-item">IP: 192.168.1.78</div>
+                            <div class="status-item">USER: <span id="terminal-user">root</span></div>
+                            <div class="status-item">MODE: <span class="success">PRIVILEGIATO</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal-output" id="terminal-output">
+                        <!-- Il contenuto del terminale verrà generato dinamicamente -->
+                    </div>
+                </div>
+                
+                <div class="input-line">
+                    <div class="prompt-symbol">root@hacker-control:~#</div>
+                    <input type="text" id="command-input" autocomplete="off" spellcheck="false" autofocus>
+                    <div class="cursor"></div>
+                </div>
+            </div>
+            
+            <!-- Schermata Rintracciamento GPS MODIFICATA -->
+            <div class="activity-screen" id="gps-screen">
+                <div class="activity-header">
+                    <h2><i class="fas fa-map-marker-alt"></i> RINTRACCIAMENTO GPS AVANZATO</h2>
+                    <p>Inserire più numeri di telefono (uno per riga) per localizzare dispositivi multipli</p>
+                </div>
+                
+                <div class="gps-input-area">
+                    <textarea id="phone-numbers" placeholder="Inserire i numeri di telefono, uno per riga&#10;Esempio:&#10;+39 123 4567890&#10;+39 987 6543210&#10;+1 555 1234567" rows="5"></textarea>
+                    <button id="start-gps-tracking">
+                        <i class="fas fa-satellite"></i> AVVIA RINTRACCIAMENTO MULTIPLO
+                    </button>
+                </div>
+                
+                <div class="gps-terminal-container">
+                    <div class="activity-terminal-output" id="gps-terminal-output">
+                        <!-- Output del processo di tracking GPS -->
+                    </div>
+                    
+                    <div class="gps-results-container" id="gps-results-container">
+                        <!-- I risultati GPS verranno aggiunti dinamicamente -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schermata Hackeraggio Telecamere -->
+            <div class="activity-screen" id="cameras-screen">
+                <div class="activity-header">
+                    <h2><i class="fas fa-video"></i> HACKERAGGIO TELECAMERE</h2>
+                    <p>Accesso remoto ai feed delle telecamere di sorveglianza</p>
+                </div>
+                
+                <div class="camera-terminal-container">
+                    <button id="start-camera-hack" style="padding: 12px 25px; background-color: #004400; border: 1px solid #0f0; color: #0f0; cursor: pointer; margin-bottom: 20px; width: 100%;">
+                        <i class="fas fa-user-secret"></i> AVVIA HACKERAGGIO TELECAMERE
+                    </button>
+                    
+                    <div class="activity-terminal-output" id="camera-terminal-output">
+                        <!-- Output del processo di hackeraggio -->
+                    </div>
+                    
+                    <div class="cameras-grid" id="cameras-grid" style="display: none;">
+                        <!-- Le telecamere verranno aggiunte dinamicamente -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schermata Controllo Jammer MODIFICATA -->
+            <div class="activity-screen" id="jammer-screen">
+                <div class="activity-header">
+                    <h2><i class="fas fa-wifi"></i> CONTROLLO JAMMER A DISTANZA</h2>
+                    <p>Attivazione e disattivazione remota di dispositivi jammer multipli</p>
+                </div>
+                
+                <div class="jammer-terminal-container">
+                    <div class="activity-terminal-output" id="jammer-terminal-output">
+                        <!-- Output del controllo jammer -->
+                    </div>
+                    
+                    <!-- Jammer 1 -->
+                    <div class="jammer-section">
+                        <h3><i class="fas fa-wifi"></i> JAMMER 1 - ZONA NORD</h3>
+                        <div class="jammer-controls">
+                            <div class="jammer-btn" id="jammer1-activate">
+                                <i class="fas fa-power-off"></i> ATTIVA JAMMER 1
+                            </div>
+                            <div class="jammer-btn" id="jammer1-deactivate">
+                                <i class="fas fa-ban"></i> DISATTIVA JAMMER 1
+                            </div>
+                        </div>
+                        
+                        <div class="jammer-status" id="jammer1-status">
+                            <!-- Stato del jammer 1 -->
+                        </div>
+                    </div>
+                    
+                    <!-- Jammer 2 -->
+                    <div class="jammer-section">
+                        <h3><i class="fas fa-wifi"></i> JAMMER 2 - ZONA SUD</h3>
+                        <div class="jammer-controls">
+                            <div class="jammer-btn" id="jammer2-activate">
+                                <i class="fas fa-power-off"></i> ATTIVA JAMMER 2
+                            </div>
+                            <div class="jammer-btn" id="jammer2-deactivate">
+                                <i class="fas fa-ban"></i> DISATTIVA JAMMER 2
+                            </div>
+                        </div>
+                        
+                        <div class="jammer-status" id="jammer2-status">
+                            <!-- Stato del jammer 2 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Matrix effect in background -->
+    <div class="matrix-bg" id="matrix-bg"></div>
+    
+    <!-- Effetto scanlines -->
+    <div class="scanlines"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
