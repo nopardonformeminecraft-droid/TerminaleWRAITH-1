@@ -284,9 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { text: "Sessione criptata attiva. Tutte le operazioni sono anonime.", type: "info", delay: 1000 },
             { text: "", type: "output", delay: 1300 },
             { text: "Selezionare un'attività dal menu laterale per iniziare.", type: "info", delay: 1600 },
-            { text: "", type: "output", delay: 1900 },
-            { text: "Comando segreto per attivare il protocollo di emergenza:", type: "warning", delay: 2200 },
-            { text: "> digitare 'codice_rosso' nel terminale", type: "warning", delay: 2500 }
+            { text: "", type: "output", delay: 1900 }
         ];
         
         let totalDelay = 0;
@@ -325,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let history = [];
         let historyIndex = -1;
         
-        // Comandi disponibili (AGGIUNTO: codice_rosso)
+        // Comandi disponibili (AGGIUNTO: ashfall purge)
         const commands = {
             help: "Mostra tutti i comandi disponibili",
             clear: "Pulisce lo schermo del terminale",
@@ -334,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sysinfo: "Mostra informazioni di sistema",
             status: "Mostra lo stato delle attività",
             reboot: "Riavvia il terminale",
-            codice_rosso: "Attiva il protocollo di emergenza"
+            ashfall_purge: "Attiva il protocollo di emergenza"
         };
         
         // Aggiungi evento per l'input dei comandi
@@ -415,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'reboot':
                 rebootTerminal();
                 break;
-            case 'codice_rosso': // COMANDO SEGRETO PER EMERGENZA
+            case 'ashfall_purge': // COMANDO SEGRETO PER EMERGENZA
                 activateEmergencyProtocol();
                 break;
             default:
@@ -1199,6 +1197,5 @@ document.addEventListener('DOMContentLoaded', function() {
         sysinfo: "Mostra informazioni di sistema",
         status: "Mostra lo stato delle attività",
         reboot: "Riavvia il terminale",
-        codice_rosso: "Attiva il protocollo di emergenza"
     };
 });
